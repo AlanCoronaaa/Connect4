@@ -97,10 +97,10 @@ if __name__ == '__main__':
         opcion_menu = menu()
         while opcion_menu != "5":
             os.system("cls")
-            if opcion_menu == "1" or opcion_juego == "2":
+            if opcion_menu == "1" or opcion_menu == "2":
                 main(opcion_menu)
                 saca_promedios()
-            elif opcion_juego == "3":
+            elif opcion_menu == "3":
                 examen_final()
                 os.system("cls")
 
