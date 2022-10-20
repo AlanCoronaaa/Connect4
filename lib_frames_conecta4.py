@@ -1,21 +1,33 @@
+from builtins import print
+
 from connect4 import *
 import os
 from random import randint
+import colorama
+from colorama import Fore, Back
+colorama.init(autoreset=True)
+
 
 # Fichas de juego
+print(f'{f"{Fore.WHITE}{Back.RED}"}')
+
 
 ficha1 = [
-    ["    ooo    "],
-    ["  ooooooo  "],
-    ["  ooooooo  "],
-    ["    ooo    "]
+          ["    ooo    "],
+          ["  ooooooo  "],
+          ["  ooooooo  "],
+          ["    ooo    "],
 ]
+
+
+print(f"{f'{Fore.WHITE}{Back.YELLOW}'}")
 ficha2 = [
-    ["    xxx    "],
-    ["  x:xxx:x  "],
-    ["  x:xxx:x  "],
-    ["    xxx    "]
+          ["    xxx    "],
+          ["  x:xxx:x  "],
+          ["  x:xxx:x  "],
+          ["    xxx    "]
 ]
+
 vacio = [
     ["     .     "],
     ["     .     "],
@@ -28,7 +40,7 @@ renglon_inferior = ["""
      ^          ^          ^          ^          ^          ^          ^
      1          2          3          4          5          6          7
 """]
-▔▔▔▔▔▔▔▔▔▔
+
 Felicidades_jugador1 = ["""
 ━━━━━━✧♛✧━━━━━━━━━━━━✧♛✧━━━━━━━━━━━━✧♛✧━━━━━━━━━━━━✧♛✧━━━━━━
             Ganador Jugador 1
@@ -87,7 +99,7 @@ def agregar_ficha_matriz(columna, ficha):
     replay.append(estado_matriz)
 
 
-# Imprecion de forma (retorno de un string de la forma actual)
+# Impresion de forma (retorno de un string de la forma actual)
 
 def imprimir_forma():
     os.system('mode con: cols=85 lines=43')
@@ -108,7 +120,6 @@ def posiciones_y(columna):
             posicion_libre.append(x)
 
     return posicion_libre
-
 
 def validacion_numero(caracter):
     if str(caracter).isdigit():
@@ -231,20 +242,21 @@ def inicio():
     os.system('mode con: cols=80 lines=20')
 
     mensaje_de_inicio = """
-    ≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
-                                                                              
-                                 Bienvenido a Conecta 4                      
-          _______   ______    ___ __    ______  _______  ________   __    __  
-         /  ____/  / ___  /  /  | / /  /:::::/ /  ____/ /__   __/  / /__/  /      
-        /  /___   / /__/ /  /   |/ /  /:/:/   /  /___     /  /    /__   _/    
-       /______/  /______/  /__/|__/  /:::::/ /______/    /__/        /_ /      
-                                                                 
-                            Presiona enter para comenzar                  
-                                                                            
-    ≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
-
-
-                 
+    ≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+                                                                                      
+                                                             Bienvenido                     
+         ______      # ______      # ___   __      # ______      # ______      # _________  # ________      #  # __   __       #
+        /_____/\     #/_____/\     #/__/\ /__/\    #/_____/\     #/_____/\     #/________/\ #/_______/\     #  #/__/\/__/\     #
+        \:::__\/     #\:::_ \ \    #\::\_\\  \ \   #\::::_\/_    #\:::__\/     #\__.::.__\/ #\::: _  \ \    #  #\  \ \: \ \__  #
+         \:\ \  __   # \:\ \ \ \   # \:. `-\  \ \  # \:\/___/\   # \:\ \  __   #   \::\ \   # \::(_)  \ \   #  # \::\_\::\/_/\ #
+          \:\ \/_/\  #  \:\ \ \ \  #  \:. _    \ \ #  \::___\/_  #  \:\ \/_/\  #    \::\ \  #  \:: __  \ \  #  #  \_:::   __\/ #
+           \:\_\ \ \ #   \:\_\ \ \ #   \. \`-\  \ \#   \:\____/\ #   \:\_\ \ \ #     \::\ \ #   \:.\ \  \ \ #  #       \::\ \  #
+            \_____\/ #    \_____\/ #    \__\/ \__\/#    \_____\/ #    \_____\/ #      \__\/ #    \__\/\__\/ #  #        \__\/  #
+                     ##             ##               ##             ##             ##            ##               ##  ##   
+                                                                         
+                                                     Presiona enter para comenzar                  
+                                                                                    
+    ≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣        
     """
     print(mensaje_de_inicio)
 
@@ -272,14 +284,14 @@ def menu():
         op_menu = input("  Ingresa tu opcion : ")
         if validacion_numero(op_menu) == True:
             if int(op_menu) <= 5 and int(op_menu) > 0:
-                opciones_menu == True
+                var = opciones_menu == True
                 break
 
     return op_menu
 
 
 def instrucciones():
-    instruccion = ["""
+    instruccion = ("""
     •┈┈·┈•••┈┈┈••✦ ✿ ✦••┈┈┈••┈┈·┈•••┈┈·┈•••┈┈┈••✦ ✿ ✦••┈┈┈••┈┈·┈••
     Estas por comenzar el juego
     Crea tu estrategia e introduce las fichas segun tu plan de juego
@@ -289,12 +301,11 @@ def instrucciones():
         ☆ horizontal
         ๑ diagonal
         
-        
-            ,¸,.•*¯`•.,¸,.•....╭━━━━╮
-            ,¸,.•*¯`•.,¸,.•*¯.|:::::::: /\:__:/\
-            ¸,.•*¯`•.,¸,.•* <|:::::::::(｡ ● ω ●｡) 
-            ¸,.•*¯`•.,¸,.•*  ╰し---し---Ｊ･････ﾟ
-                                               
+        ,¸,.•*¯`•.,¸,.•.... ╭━━━━╮
+        ,¸,.•*¯`•.,¸,.•*¯.|:::::::: /\:__:/\  
+        ¸,.•*¯`•.,¸,.•* <|:::::::::(｡ ● ω ●｡)
+        ¸,.•*¯`•.,¸,.•*  ╰し---し---Ｊ･････ﾟ
+                                            PRESS ENTER    
     •┈┈·┈•••┈┈┈••✦ ✿ ✦••┈┈┈••┈┈·┈•••┈┈·┈•••┈┈┈••✦ ✿ ✦••┈┈┈••┈┈·┈••
-    """]
+    """)
     print(instruccion[0])

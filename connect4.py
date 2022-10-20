@@ -3,8 +3,9 @@ from Generador_matrices import *
 import datetime
 import os
 from datetime import datetime
-
-
+import colorama
+from colorama import Fore, Back
+colorama.init(autoreset=True)
 
 #::::::::::::::::::::::::::::
 
@@ -15,8 +16,8 @@ top_global = []
 #::::::::::::::::::::::::::::
 
 def cargar_archivos():
-    cargarMatriz=(registro_juegos_localidad, registro_de_juegos)
-    cargarMatriz=(top_global_localidad, top_global)
+    cargarMatriz = (registro_juegos_localidad, registro_de_juegos)
+    cargarMatriz = (top_global_localidad, top_global)
 
 
 def buscar_elemento(matriz, columna, valor):
@@ -37,13 +38,13 @@ def registro_datos_partida(jugador_ganador, jugador_perdedor):
     lista_a_top_global = jugador_ganador
     registro_juegos_anadir = [lista_a_registro_juegos[0], lista_a_registro_juegos[1], datetime.now()]
     registro_de_juegos.append(registro_juegos_anadir)
-    guardarMatriz=(registro_juegos_localidad, registro_de_juegos)
+    guardarMatriz = (registro_juegos_localidad, registro_de_juegos)
     if id_nombre == -1:
         top_global_anadir = [lista_a_top_global, score]
         top_global.append(top_global_anadir)
     else:
         top_global[id_nombre][1] = int(top_global[id_nombre][1]) + 1
-    guardarMatriz=(top_global_localidad, top_global)
+    guardarMatriz = (top_global_localidad, top_global)
 
     print("Partida guardada")
     input()
@@ -78,6 +79,7 @@ def main(op_juego):
                     jugada = int(jugada)
                     if n_columnas >= jugada >= 0:
                         jugada -= 1
+                        print(Fore.RED + Back.RED)
                         agregar_ficha_matriz(jugada, ficha1)
                         turno_jugador = 2
                         re_ingresar = False
@@ -99,9 +101,11 @@ def main(op_juego):
                     jugada = int(jugada)
                     if n_columnas >= jugada >= 0:
                         jugada -= 1
+                        print(Fore.YELLOW + Back.YELLOW)
                         agregar_ficha_matriz(jugada, ficha2)
                         turno_jugador = 1
                         re_ingresar = False
+
                     else:
                         print("Columna invalida")
                         re_ingresar == True
